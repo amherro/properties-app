@@ -45,6 +45,9 @@ a:visited {
 .searchbox {
   grid-column: 2 / 3;
 }
+.results {
+  grid-row: 2;
+}
 
 .search-form {
   display: flex;
@@ -75,24 +78,36 @@ a:visited {
   border-radius: 5px;
   padding: 10px 10px;
 }
+.results-section {
+  grid-column: 2 / 3;
+  grid-row: inherit;
+  padding-top: 5rem;
+}
+.error-toast {
+  background-color: #f4f4f4;
+  /* border: 3px solid red; */
+  color: #000;
+  font-weight: bold;
+}
 
 /******* Media Queries *******/
-
-/* Navbar */
 @media (max-width: 735px) {
+  /* Navbar */
   .header-container {
     flex-direction: column;
   }
   .logo {
     margin-bottom: 1.9rem;
   }
+  .nav-link a {
+    font-size: 1rem;
+  }
+  /* Search Box */
   main {
     display: flex;
     flex-direction: column;
   }
-  .nav-link a {
-    font-size: 1rem;
-  }
+
   .search-form {
     align-items: center;
     width: 100%;
