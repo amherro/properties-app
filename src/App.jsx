@@ -1,15 +1,16 @@
-import Header from "./components/Header"
-import SearchResults from "./components/search/SearchResults"
+import Header from './components/Header';
+import Searchbox from './components/search/Searchbox';
+// import SearchResults from './components/search/SearchResults';
 
 function App() {
   return (
     <>
       <Header />
       <main>
-        <SearchResults />
+        <Searchbox />
       </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

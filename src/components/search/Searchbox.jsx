@@ -1,28 +1,38 @@
+import { useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
+import ResultsContainer from './ResultsContainer';
 
-// const Searchbox = ({searchPosts}) => {
-const Searchbox = ({}) => {
+const Searchbox = () => {
+  const [searchResults, setSearchResults] = useState([]);
+  const [loading, setLoading] = useState(false);
+
   const searchPosts = async () => {
     // const url = process.env.API_URL
-    const url = 'https://jsonplaceholder.typicode.com/posts/';
+    const url = 'https://jsonplaceholder.typicode.com/posts/1';
+    setLoading(!loading);
     try {
       const res = await fetch(url);
-      if (res.error) {
+      if (!res.ok) {
         throw new Error(`Error: ${res.status}`);
       }
       const data = await res.json();
-      // setSearchResults(data => [...searchResults, data.body])
-      console.log(data);
-      return data.body;
+      setSearchResults(() => [...searchResults, data.body]);
+      console.log(searchResults);
+      setLoading(false);
+      return searchResults;
     } catch (error) {
       throw new Error(`Error: ${error}`);
     }
   };
 
-  const submitSearch = (formData) => {
+  useEffect(() => {
+    searchPosts();
+  }, []);
+
+  const submitSearch = async (formData) => {
     const formSearch = {
       // search: formData.get("search")
-      search: searchPosts(),
+      search: await searchPosts(),
     };
     if (formSearch.search === '') {
       return toast('Please type something...', {
@@ -36,7 +46,8 @@ const Searchbox = ({}) => {
         className: 'error-toast',
       });
     }
-    return searchPosts(formSearch);
+    // console.log(formSearch.search);
+    return formSearch.search;
   };
 
   return (
@@ -58,6 +69,9 @@ const Searchbox = ({}) => {
         </button>
       </form>
       <ToastContainer />
+      {searchResults && (
+        <ResultsContainer searchResults={searchResults} loading={loading} />
+      )}
     </div>
   );
 };
