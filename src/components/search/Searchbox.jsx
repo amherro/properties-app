@@ -17,30 +17,27 @@ const Searchbox = () => {
       }
       const data = await res.json();
       setSearchResults(() => [...searchResults, data.body]);
-      console.log(searchResults);
       setLoading(false);
       return searchResults;
     } catch (error) {
       throw new Error(`Error: ${error}`);
     }
   };
+  console.log(searchResults);
 
-  useEffect(() => {
-    searchPosts();
-  }, []);
-
-  const submitSearch = async (formData) => {
+  const submitSearch = async () => {
     const formSearch = {
       // search: formData.get("search")
       search: await searchPosts(),
     };
     if (formSearch.search === '') {
+      console.log(formSearch.search);
       return toast('Please type something...', {
         position: 'top-right',
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: false,
+        pauseOnHover: true,
         draggable: false,
         progress: undefined,
         className: 'error-toast',
