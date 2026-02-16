@@ -6,7 +6,12 @@ const ResultsContainer = ({ searchResults, loading }) => {
         {loading ? (
           <h3 className="data-loading-header">Loading...</h3>
         ) : (
-          searchResults.map((result, index) => <h2 key={index}>{result}</h2>)
+          searchResults.map((result, index) => (
+            <div key={result.id} className="card">
+              <h2>{result.name}</h2>
+              <p>{result.description}</p>
+            </div>
+          ))
         )}
       </div>
     </>

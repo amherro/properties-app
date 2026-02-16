@@ -2,36 +2,37 @@ import { useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import ResultsContainer from './ResultsContainer';
 
-const Searchbox = () => {
+const Searchbox = ({ url }) => {
   const [searchResults, setSearchResults] = useState([]);
+  const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(false);
 
   const searchPosts = async () => {
     // const url = process.env.API_URL
-    const url = 'https://jsonplaceholder.typicode.com/posts/1';
-    setLoading(!loading);
+    setLoading(true);
     try {
       const res = await fetch(url);
       if (!res.ok) {
         throw new Error(`Error: ${res.status}`);
       }
       const data = await res.json();
-      setSearchResults(() => [...searchResults, data.body]);
-      setLoading(false);
-      return searchResults;
+      const filteredData = data.filter((spell) => {
+        return spell.name.toLowerCase().includes(query.toLowerCase());
+      });
+      setSearchResults(filteredData);
+      return filteredData;
     } catch (error) {
+      toast('Something went wrong...', { className: 'error-toast' });
       throw new Error(`Error: ${error}`);
+    } finally {
+      setLoading(false);
     }
   };
-  console.log(searchResults);
 
-  const submitSearch = async () => {
-    const formSearch = {
-      // search: formData.get("search")
-      search: await searchPosts(),
-    };
-    if (formSearch.search === '') {
-      console.log(formSearch.search);
+  const submitSearch = async (e) => {
+    e.preventDefault();
+
+    if (!query.trim()) {
       return toast('Please type something...', {
         position: 'top-right',
         autoClose: 5000,
@@ -43,15 +44,14 @@ const Searchbox = () => {
         className: 'error-toast',
       });
     }
-    // console.log(formSearch.search);
-    return formSearch.search;
+    await searchPosts();
   };
 
   return (
     <div className="searchbox">
-      <form action={submitSearch} className="search-form">
+      <form onSubmit={submitSearch} className="search-form">
         <label htmlFor="search" className="search-title">
-          Find Properties
+          Find Spells
         </label>
         <input
           type="text"
@@ -59,7 +59,9 @@ const Searchbox = () => {
           name="search"
           placeholder="Search..."
           className="search-input"
+          value={query}
           maxLength={50}
+          onChange={(e) => setQuery(e.target.value)}
         />
         <button type="submit" className="search-button">
           Search

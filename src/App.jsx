@@ -8,7 +8,8 @@ function App() {
     <>
       <Header />
       <main>
-        <Searchbox />
+        <h1>Home</h1>
+        <Searchbox url="https://hp-api.onrender.com/api/spells" />
       </main>
       <Footer />
     </>
