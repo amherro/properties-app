@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import ResultsContainer from './ResultsContainer';
 
-const Searchbox = ({ url }) => {
+const Searchbox = ({ url, pageName }) => {
   const [searchResults, setSearchResults] = useState([]);
   const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(false);
@@ -44,6 +44,7 @@ const Searchbox = ({ url }) => {
         className: 'error-toast',
       });
     }
+    setQuery('');
     await searchPosts();
   };
 
@@ -51,7 +52,7 @@ const Searchbox = ({ url }) => {
     <div className="searchbox">
       <form onSubmit={submitSearch} className="search-form">
         <label htmlFor="search" className="search-title">
-          Find Spells
+          {`Find ${pageName}`}
         </label>
         <input
           type="text"

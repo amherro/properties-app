@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router';
+
 const Header = () => {
   return (
     <header className="header-container">
@@ -7,16 +9,19 @@ const Header = () => {
       <nav>
         <ul className="nav-links-container">
           <li className="nav-link">
-            <a href="/">Home</a>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li className="nav-link">
-            <a href="/about">About</a>
+            <NavLink to="/about">About</NavLink>
           </li>
           <li className="nav-link">
-            <a href="/contact">Contact</a>
+            <NavLink to="/contact">Contact</NavLink>
           </li>
           <li className="nav-link">
-            <a href="/spells">Spells</a>
+            <NavLink to="/spells">Spells</NavLink>
+          </li>
+          <li className="nav-link">
+            <NavLink to="/characters">Characters</NavLink>
           </li>
         </ul>
       </nav>
