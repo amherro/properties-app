@@ -64,14 +64,14 @@ a:visited {
 
 .search-form {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
   gap: 10px;
   padding-top: 50px;
 }
 
 .search-title {
-  width: 90%;
+  width: 41%;
   max-width: 90%;
   font-size: 1.9rem;
   font-weight: 600;
@@ -79,14 +79,14 @@ a:visited {
 }
 
 .search-input {
-  width: 86%;
+  width: 40%;
   padding: 10px 10px;
   border: 1px solid #ced4da;
   border-radius: 5px;
 }
 
 .search-button {
-  width: 50%;
+  width: 20%;
   border: 1px solid #000;
   border-radius: 5px;
   padding: 10px 10px;
@@ -94,6 +94,7 @@ a:visited {
   color: #fff;
   font-size: 1rem;
   margin-top: 20px;
+  margin-right: 213px;
 }
 
 .search-button:hover {
@@ -151,6 +152,13 @@ a:visited {
   font-size: 1.7rem;
   margin-bottom: 7px;
 }
+.characterImg {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
 
 footer {
   display: flex;
@@ -182,7 +190,6 @@ footer {
   }
 
   .search-form {
-    align-items: center;
     width: 100%;
   }
   .search-title {

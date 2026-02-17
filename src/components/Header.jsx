@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <header className="header-container">
       <h1 className="logo">
-        <a href="/">HomeSteady</a>
+        <a href="/">Wizard World Reference</a>
       </h1>
       <nav>
         <ul className="nav-links-container">
@@ -13,9 +13,6 @@ const Header = () => {
           </li>
           <li className="nav-link">
             <NavLink to="/about">About</NavLink>
-          </li>
-          <li className="nav-link">
-            <NavLink to="/contact">Contact</NavLink>
           </li>
           <li className="nav-link">
             <NavLink to="/spells">Spells</NavLink>
