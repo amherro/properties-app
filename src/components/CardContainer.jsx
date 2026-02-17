@@ -9,7 +9,7 @@ const Card = ({ data }) => {
         if (location.pathname === '/spells') {
           return <SpellCard data={data} />;
         } else if (location.pathname === '/characters') {
-          return <CharacterCard data={data} />;
+          return <CharacterCard data={data} house={data.house.toLowerCase()} />;
         }
       })()}
     </>

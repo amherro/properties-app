@@ -20,7 +20,7 @@ body {
 
 main {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 0.5fr 2fr 0.5fr;
   grid-template-rows: auto 1fr auto;
 }
 
@@ -101,8 +101,8 @@ a:visited {
   scale: 1.01;
 }
 .results-section {
-  grid-column: 2 / 3;
-  grid-row: inherit;
+  display: grid;
+  grid-template-columns: auto auto;
   padding-top: 5rem;
 }
 .error-toast {
@@ -122,6 +122,34 @@ a:visited {
   margin: 2rem;
   border-radius: 10px;
   max-width: 20rem;
+  min-height: 10rem;
+  text-align: center;
+}
+
+/* Character Card Styles */
+.gryffindor {
+  background-color: #740001;
+  color: #ffc72e;
+}
+.hufflepuff {
+  background-color: #ffd800;
+  color: #000;
+}
+.ravenclaw {
+  background-color: #0e1a40;
+  color: #d4ac0d;
+}
+.slytherin {
+  background-color: #1a472a;
+  color: #fff;
+}
+.noHouseListed {
+  background-color: #000;
+  color: #fff;
+}
+.card > .name {
+  font-size: 1.7rem;
+  margin-bottom: 7px;
 }
 
 footer {

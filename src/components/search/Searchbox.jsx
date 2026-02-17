@@ -1,17 +1,30 @@
 import { useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
+import { useLocation } from 'react-router';
 import ResultsContainer from './ResultsContainer';
 
 const Searchbox = ({ url, pageName }) => {
   const [searchResults, setSearchResults] = useState([]);
   const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(false);
+  const location = useLocation();
+
+  let route;
+
+  const getRoute = () => {
+    if (location.pathname === '/spells') {
+      route = 'spells';
+    } else if (location.pathname === '/characters') {
+      route = 'characters';
+    }
+  };
 
   const searchPosts = async () => {
+    getRoute();
     // const url = process.env.API_URL
     setLoading(true);
     try {
-      const res = await fetch(url);
+      const res = await fetch(`https://hp-api.onrender.com/api/${route}`);
       if (!res.ok) {
         throw new Error(`Error: ${res.status}`);
       }

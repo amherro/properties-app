@@ -5,10 +5,7 @@ import Searchbox from '../search/Searchbox';
 const Spells = () => {
   return (
     <>
-      <Searchbox
-        url="https://hp-api.onrender.com/api/spells"
-        pageName="Spells"
-      />
+      <Searchbox pageName="Spells" />
     </>
   );
 };
