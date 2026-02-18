@@ -127,6 +127,22 @@ a:visited {
   text-align: center;
 }
 
+.more-info {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #ffc72e;
+  border-radius: 10px;
+  padding: 3px 10px;
+  width: 50%;
+  height: 3rem;
+  margin-top: 20px;
+}
+
+.more-info:hover {
+  background-color: #ffc72e;
+  color: #740001;
+}
+
 /* Character Card Styles */
 .gryffindor {
   background-color: #740001;
