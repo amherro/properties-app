@@ -145,19 +145,44 @@ a:visited {
 
 dialog {
   position: fixed;
+  display: grid;
+  grid-template-columns: 2fr 0.5fr;
+  grid-template-rows: 60px 2fr;
+  grid-template-areas:
+    'head head'
+    'main main';
   width: 500px;
   height: 500px;
   margin: auto;
   padding: 0;
+  border-radius: 5%;
+  border: none;
+}
+.modal-data {
+  grid-area: main;
+}
+.modal-data > .name {
+  font-size: 2.75rem;
+}
+.modal-data > p {
+  font-size: 1.2rem;
 }
 
 .modal-close {
   background-color: transparent;
+  justify-self: end;
   color: #fff;
   border: none;
+  margin: 1rem;
+  grid-area: head;
+  height: 20px;
 }
 .modal-close:hover {
   scale: 1.1;
+}
+
+.gryffindor > .modal-close {
+  color: #ffc72e;
 }
 
 /* Character Card Styles */
@@ -178,6 +203,9 @@ dialog {
   background-color: #ffd800;
   color: #000;
 }
+.hufflepuff > .modal-close {
+  color: #000;
+}
 .hufflepuff > .more-info {
   border: 2px solid #000;
   color: #000;
@@ -191,6 +219,9 @@ dialog {
   background-color: #0e1a40;
   color: #d4ac0d;
 }
+.ravenclaw > .modal-close {
+  color: #d4ac0d;
+}
 .ravenclaw > .more-info {
   border: 1px solid #d4ac0d;
   color: #d4ac0d;
@@ -202,6 +233,9 @@ dialog {
 }
 .slytherin {
   background-color: #1a472a;
+  color: #fff;
+}
+.slytherin > .modal-close {
   color: #fff;
 }
 .slytherin > .more-info {
