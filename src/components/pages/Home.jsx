@@ -16,7 +16,7 @@ const Home = () => {
         throw new Error(`Error: ${res.status}`);
       }
       const data = await res.json();
-      const slicedData = data.slice(0, 5);
+      const slicedData = data.slice(0, 3);
       setCharacterResults(slicedData);
     } catch (error) {
       toast('Something went wrong...', { className: 'error-toast' });
@@ -33,11 +33,10 @@ const Home = () => {
   return (
     <>
       <h2 className="home-heading">
-        Pick a category to learn more
-        <br /> about the world of Harry Potter
+        Learn more about the world of Harry Potter
       </h2>
       <section className="characters-home">
-        <h3>Characters</h3>
+        <h3 className="home-section-heading">Characters</h3>
         {/* {characterResults.map((character) => {
           <CharacterCard
             data={character}
