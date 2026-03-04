@@ -21,7 +21,8 @@ body {
 main {
   display: grid;
   grid-template-columns: 0.5fr 2fr 0.5fr;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto;
+  grid-template-areas: 'side content';
 }
 
 .header-container {
@@ -55,11 +56,25 @@ a:visited {
   color: #000;
 }
 
+.home-heading {
+  grid-area: content;
+  justify-self: center;
+  margin-top: 5rem;
+  grid-row: 1;
+  height: 100px;
+}
+
+.characters-home {
+  grid-area: content;
+  justify-self: start;
+  grid-row: 2;
+}
+
 .searchbox {
   grid-column: 2 / 3;
 }
 .results {
-  grid-row: 2;
+  grid-row: 0;
 }
 
 .search-form {

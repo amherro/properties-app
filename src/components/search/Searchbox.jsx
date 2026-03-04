@@ -83,11 +83,7 @@ const Searchbox = ({ url, pageName }) => {
       </form>
       <ToastContainer />
       {searchResults && (
-        <ResultsContainer
-          searchResults={searchResults}
-          loading={loading}
-          pageName={pageName}
-        />
+        <ResultsContainer results={searchResults} loading={loading} />
       )}
     </div>
   );

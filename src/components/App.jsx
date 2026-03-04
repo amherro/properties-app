@@ -15,8 +15,8 @@ function App() {
       <main>
         <Routes>
           <Route index element={<Home />} />
-          <Route path="spells" element={<Spells />} />
           <Route path="characters" element={<Characters />} />
+          <Route path="spells" element={<Spells />} />
         </Routes>
       </main>
       <Footer />

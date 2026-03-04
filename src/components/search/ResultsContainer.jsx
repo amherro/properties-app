@@ -1,13 +1,13 @@
 import CardContainer from '../CardContainer';
 
-const ResultsContainer = ({ searchResults, loading, pageName }) => {
+const ResultsContainer = ({ results, loading }) => {
   return (
     <>
       <div className="results-section">
         {loading ? (
           <h3 className="data-loading-header">Loading...</h3>
         ) : (
-          searchResults.map((result, index) => (
+          results.map((result, index) => (
             <CardContainer key={result.id} data={result} />
           ))
         )}

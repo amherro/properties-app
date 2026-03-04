@@ -17,7 +17,7 @@ const CharacterModal = ({ modalData, closeModal }) => {
       </button>
       <span className="modal-data">
         <img
-          src={modalData.image}
+          src={modalData.image ? modalData.image : null}
           alt={`Image of ${modalData.name}`}
           className="characterImg"
         />
