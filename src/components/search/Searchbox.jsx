@@ -4,7 +4,7 @@ import { useLocation } from 'react-router';
 import ResultsContainer from './ResultsContainer';
 
 const Searchbox = ({ url, pageName }) => {
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState();
   const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(false);
   const location = useLocation();

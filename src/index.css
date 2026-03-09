@@ -58,7 +58,10 @@ main {
 a:visited {
   color: #000;
 }
-
+.no-result-message {
+  grid-column: 2;
+  margin-top: 5rem;
+}
 .home-heading {
   /* grid-area: content; */
   justify-self: center;
@@ -120,7 +123,7 @@ a:visited {
   color: #fff;
   font-size: 1rem;
   margin-top: 20px;
-  margin-right: 213px;
+  margin-right: 309px;
 }
 
 .search-button:hover {
