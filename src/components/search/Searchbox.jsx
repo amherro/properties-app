@@ -7,31 +7,27 @@ const Searchbox = ({ url, pageName }) => {
   const [searchResults, setSearchResults] = useState();
   const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(false);
-  const location = useLocation();
 
-  let route;
 
-  const getRoute = () => {
-    if (location.pathname === '/spells') {
-      route = 'spells';
-    } else if (location.pathname === '/characters') {
-      route = 'characters';
-    }
-  };
-
-  const searchPosts = async () => {
-    getRoute();
-    // const url = process.env.API_URL
+  const searchPosts = async (query) => {
     setLoading(true);
     try {
-      const res = await fetch(`https://hp-api.onrender.com/api/${route}`);
+      // Fetch data
+      const res = await fetch(`${url}`);
       if (!res.ok) {
         throw new Error(`Error: ${res.status}`);
       }
       const data = await res.json();
-      const filteredData = data.filter((spell) => {
-        return spell.name.toLowerCase().includes(query.toLowerCase());
+
+      // Set first letter to be capitalized
+      let str = query
+      let capital = str[0]?.toUpperCase() + str.slice(1)
+
+      // Filter based on the search
+      const filteredData = data.filter((searchItem) => {
+        return searchItem.name.startsWith(capital);
       });
+
       setSearchResults(filteredData);
       return filteredData;
     } catch (error) {
@@ -57,8 +53,9 @@ const Searchbox = ({ url, pageName }) => {
         className: 'error-toast',
       });
     }
+    const currentQuery = query
+    await searchPosts(currentQuery);
     setQuery('');
-    await searchPosts();
   };
 
   return (
