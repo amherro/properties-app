@@ -51,7 +51,7 @@ const Home = () => {
   return (
     <>
       <h2 className="home-heading">
-        Learn more about the world of Harry Potter
+        An enchanted compendium of Harry Potter characters and spells.
       </h2>
       <section className="home-content">
         <h3 className="characters-home home-section-heading">Characters</h3>

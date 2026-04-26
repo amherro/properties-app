@@ -1,10 +1,33 @@
-* {
-  margin: 0;
-  padding: 0;
-  font-family:
-    'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans',
-    Arial, sans-serif;
-}
+
+ @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #e8c97a;
+    --parchment: #F5ECD7;
+    --parchment-dark: #E8D9B8;
+    --ink: #1a1209;
+    --ink-muted: #5c4a2a;
+    --gryffindor: #740001;
+    --gryffindor-gold: #D3A625;
+    --hufflepuff: #ecb939;
+    --hufflepuff-dark: #372e29;
+    --ravenclaw: #0e1a40;
+    --ravenclaw-bronze: #946b2d;
+    --slytherin: #1a472a;
+    --slytherin-silver: #aaaaaa;
+    --spell-bg: #0e1a40;
+    --card-border: rgba(201,168,76,0.35);
+  }
+
+  body {
+    background: var(--ink);
+    color: var(--parchment);
+    font-family: 'Lato', sans-serif;
+    min-height: 100vh;
+  }
 
 html,
 body {
@@ -32,19 +55,51 @@ main {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-direction: column;
   padding: 40px 20px;
-  background-color: #f8f9fa;
+  color: var(--gold-light);
 }
 
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logo-icon-container {
+  display: flex;
+}
+
+.logo-icon {
+  margin-bottom: 5%;
+  /* margin: 0 35% 5% 35%; */
+}
+
+
 .logo a {
+  font-family: 'Cinzel', serif;
   text-decoration: none;
   font-size: clamp(2rem, 2.4rem, 2.4rem);
+}
+/* 
+.logo::before {
+  content: '✦ ✦ ✦';
+  display: block;
+  color: var(--gold);
+  text-align: center;
+  letter-spacing: 2rem;
+  font-size: 50%;
+  margin-bottom: 5%;
+} */
+
+nav {
+  margin-top: 3%;
 }
 
 .nav-links-container {
   display: flex;
-  gap: 30px;
+  gap: 7rem;
   list-style: none;
+  font-family: 'Cinzel', serif;
 }
 
 .nav-link a {
@@ -56,19 +111,20 @@ main {
 }
 
 a:visited {
-  color: #000;
+  color: var(--gold-light);
 }
 .no-result-message {
   grid-column: 2;
   margin-top: 5rem;
 }
 .home-heading {
-  /* grid-area: content; */
-  justify-self: center;
-  margin-top: 4rem;
-  grid-row: 1;
-  height: 100px;
-  /* grid-area: top; */
+  font-family: 'IM Fell English', serif;
+    font-style: italic;
+    color: var(--parchment);
+    opacity: 0.65;
+    font-size: 1.35rem;
+    margin-top: 0.5rem;
+    text-align: center;
 }
 
 .home-content {
@@ -84,9 +140,6 @@ a:visited {
   margin-top: 3rem;
 }
 
-.searchbox {
-  /* grid-column: 2 / 3; */
-}
 .results {
   grid-row: 0;
 }
@@ -298,8 +351,8 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #323232;
-  color: #fff;
+  /* background-color: #323232; */
+   color: var(--gold-light);
   text-align: center;
   height: 70px;
   margin-top: 20px;
@@ -308,9 +361,6 @@ footer {
 /******* Media Queries *******/
 @media (max-width: 735px) {
   /* Navbar */
-  .header-container {
-    flex-direction: column;
-  }
   .logo {
     margin-bottom: 1.9rem;
   }

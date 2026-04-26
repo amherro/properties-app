@@ -13,6 +13,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@material/web": "^2.4.1",
     "@mdi/js": "^7.4.47",
     "@mdi/react": "^1.6.1",
     "react": "^19.1.0",
