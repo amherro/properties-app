@@ -9,7 +9,6 @@ import { BrowserRouter, Route, Routes } from 'react-router';
 import Spells from './pages/Spells';
 
 function App() {
-  // Test commit
   return (
     <>
       <Header />

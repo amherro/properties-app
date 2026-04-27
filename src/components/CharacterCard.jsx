@@ -17,18 +17,25 @@ const CharacterCard = ({ data, house }) => {
   return (
     <div className={`card ${house ? house : 'noHouseListed'}`}>
       {data.image && <img src={data.image} alt="" className="characterImg" />}
-      <h3 className="name">{data.name}</h3>
-      {isVisible && (
-        <CharacterModal modalData={modalData} closeModal={closeModal} />
-      )}
-      <button
-        onClick={() => getModalData(data)}
-        command="show-modal"
-        commandfor="character-modal"
-        className="more-info"
-      >
-        More Information
-      </button>
+      <div className="card-info">
+        <h3 className="name">{data.name}</h3>
+        {isVisible && (
+          <CharacterModal modalData={modalData} closeModal={closeModal} />
+        )}
+        <p className='actor'>Portrayed by: {data.actor}</p>
+        <div className="house-pill">
+          <p className="house">{data.house}</p>
+        </div>
+
+        {/* <button
+          onClick={() => getModalData(data)}
+          command="show-modal"
+          commandfor="character-modal"
+          className="more-info"
+        >
+          More Information
+        </button> */}
+      </div>
     </div>
   );
 };

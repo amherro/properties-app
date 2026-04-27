@@ -15,7 +15,7 @@ const Home = () => {
         throw new Error(`Error: ${res.status}`);
       }
       const data = await res.json();
-      const slicedData = data.slice(0, 3);
+      const slicedData = data.slice(0, 4);
       setCharacterResults(slicedData);
     } catch (error) {
       toast('Something went wrong...', { className: 'error-toast' });
@@ -50,14 +50,18 @@ const Home = () => {
 
   return (
     <>
-      <h2 className="home-heading">
-        An enchanted compendium of Harry Potter characters and spells.
-      </h2>
       <section className="home-content">
-        <h3 className="characters-home home-section-heading">Characters</h3>
-        <ChacterCardHome results={characterResults} loading={loading} />
-        <h3 className="spells-home home-section-heading">Spells</h3>
-        <SpellCardHome results={spellResults} loading={loading} />
+        <h2 className="home-heading">
+          An enchanted compendium of Harry Potter characters and spells.
+        </h2>
+        <div className="home-result-container">
+          <h3 className="home-section-heading">Characters</h3>
+          <ChacterCardHome results={characterResults} loading={loading} />
+        </div>
+        <div className="spells-home">
+          <h3 className="spells-home home-section-heading">Spells</h3>
+          <SpellCardHome results={spellResults} loading={loading} />
+        </div>
       </section>
     </>
   );
