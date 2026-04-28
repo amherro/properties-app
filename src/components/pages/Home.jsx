@@ -15,7 +15,7 @@ const Home = () => {
         throw new Error(`Error: ${res.status}`);
       }
       const data = await res.json();
-      const slicedData = data.slice(0, 4);
+      const slicedData = data.slice(0, 8);
       setCharacterResults(slicedData);
     } catch (error) {
       toast('Something went wrong...', { className: 'error-toast' });
@@ -33,7 +33,7 @@ const Home = () => {
         throw new Error(`Error: ${res.status}`);
       }
       const data = await res.json();
-      const slicedData = data.slice(0, 3);
+      const slicedData = data.slice(0, 4);
       setSpellResults(slicedData);
     } catch (error) {
       toast('Something went wrong...', { className: 'error-toast' });
@@ -52,7 +52,7 @@ const Home = () => {
     <>
       <section className="home-content">
         <h2 className="home-heading">
-          An enchanted compendium of Harry Potter characters and spells.
+          An enchanted collection of Harry Potter characters and spells.
         </h2>
         <div className="home-result-container">
           <h3 className="home-section-heading">Characters</h3>

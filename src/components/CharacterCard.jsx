@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import CharacterModal from './CharacterModal';
+import Icon from '@mdi/react';
+import { mdiLightningBoltOutline } from '@mdi/js';
 
 const CharacterCard = ({ data, house }) => {
   const [modalData, setModalData] = useState([]);
@@ -16,15 +18,16 @@ const CharacterCard = ({ data, house }) => {
 
   return (
     <div className={`card ${house ? house : 'noHouseListed'}`}>
-      {data.image && <img src={data.image} alt="" className="characterImg" />}
+      <div className={`${house}-card-top`}></div>
+      {data.image ? <img src={data.image} className="characterImg" /> : <Icon className='no-image-icon' path={mdiLightningBoltOutline} size={3} alt=""  />}
       <div className="card-info">
         <h3 className="name">{data.name}</h3>
         {isVisible && (
           <CharacterModal modalData={modalData} closeModal={closeModal} />
         )}
         <p className='actor'>Portrayed by: {data.actor}</p>
-        <div className="house-pill">
-          <p className="house">{data.house}</p>
+        <div className={`house-pill ${house}-house-pill`}>
+          <p className={`house ${house}-badge`}>{data.house}</p>
         </div>
 
         {/* <button
